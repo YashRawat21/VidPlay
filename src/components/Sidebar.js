@@ -25,7 +25,7 @@ const Sidebar = () => {
         
       </ul>
       <hr className='mt-2 w-40'/>
-      <h1 className='font-bold pt-5 cursor-pointer'>Subscriptions</h1>
+      <h1 className='font-bold pt-5 cursor-pointer'>Explore</h1>
       <ul className='cursor-pointer'>
         <li><LibraryMusicRoundedIcon className='flex items-center mr-3 ' />Music</li>
         <li><SportsHandballRoundedIcon  className='flex items-center mr-3 '  />Sports</li>
@@ -33,13 +33,24 @@ const Sidebar = () => {
         <li><MovieCreationRoundedIcon  className='flex items-center mr-3 '  />Movies</li>
       
       </ul>
-      <hr className='mt-2 w-40'/>
+        <hr className='mt-2 w-40'/>
+     
       <h1 className='font-bold pt-5 cursor-pointer'>Watch Later</h1>
       <ul className='cursor-pointer'>
       <li><LibraryMusicRoundedIcon className='flex items-center mr-3 ' />Music</li>
         <li><SportsHandballRoundedIcon  className='flex items-center mr-3 '  />Sports</li>
         <li> <SportsEsportsRoundedIcon  className='flex items-center mr-3 '  />Gaming</li>
         <li><MovieCreationRoundedIcon  className='flex items-center mr-3 '  />Movies</li>
+      </ul>
+      <hr className='mt-2 w-40'/>
+  
+      <h1 className='font-bold pt-5 cursor-pointer'>Subscriptions</h1>
+      <ul className='cursor-pointer'>
+        <li> Akshay Saini</li>
+        <li>Tanay Pratap</li>
+        <li>Lamadev</li>
+        <li>FreeCodeCamp</li>
+      
       </ul>
     </div>
   )

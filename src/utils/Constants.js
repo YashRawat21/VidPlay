@@ -4,4 +4,4 @@ export const youTube_logo2 = "https://logowik.com/content/uploads/images/899_you
 const GOOGLE_API_KEY = "AIzaSyAKDeHAQalAJPd1A6XSRoWKdiEeQsDZC2Q"
 
 
-export const YOUTUBE_VIDEOS_API = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=US&key= " +GOOGLE_API_KEY ;
+export const YOUTUBE_VIDEOS_API = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key= " +GOOGLE_API_KEY ;

@@ -1,7 +1,7 @@
 import React from 'react'
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
-import { hamburger_link, youTube_logo } from '../assets/Links';
+import { hamburger_link,youTube_logo } from '../utils/Constants';
 import { useDispatch } from 'react-redux';
 import { toggleMenu } from '../utils/appSlice';
 const Head = () => {

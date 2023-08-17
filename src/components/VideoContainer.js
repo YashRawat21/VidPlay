@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { YOUTUBE_VIDEOS_API} from '../utils/Constants'
+import { Link } from 'react-router-dom';
 import VideoCard from './VideoCard';
+import { useSelector } from 'react-redux';
 const VideoContainer = () => {
   const [videos,setVideos] = useState([]);
   const getVideos = async() => {
@@ -11,14 +13,15 @@ const VideoContainer = () => {
   useEffect(() => {
      getVideos()
   },[])
-
+    
+  const closeMenu = useSelector((store) => store.app.closeMenu)
   return (
-    <div className=' flex flex-wrap'>
+    <div className=' flex flex-wrap '>
       {
         videos.length > 0
        ?
       videos.map((video) => {
-      return  <VideoCard info={video}/>
+      return <Link to = {"/watch?v=" + video.id} > <VideoCard key={video.id} info={video}/></Link>
       }) :
       <h1>Loading...</h1>
 

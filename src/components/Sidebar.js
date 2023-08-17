@@ -8,6 +8,7 @@ import MovieCreationRoundedIcon from '@mui/icons-material/MovieCreationRounded';
 import SportsHandballRoundedIcon from '@mui/icons-material/SportsHandballRounded';
 import SportsEsportsRoundedIcon from '@mui/icons-material/SportsEsportsRounded';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   const isMenuOpen = useSelector(store => store.app.isMenuOpen);
@@ -18,7 +19,7 @@ const Sidebar = () => {
     <div className='shadow-lg p-5 w-48'>
 
 <ul className='cursor-pointer'>
-        <li><HomeRoundedIcon className='flex items-center mr-3 '/>Home</li>
+     <Link to="/"> <li><HomeRoundedIcon className='flex items-center mr-3 '/>Home</li></Link>  
         <li><AppShortcutRoundedIcon className='flex items-center mr-3 '/>Shorts</li>
         <li><VideocamRoundedIcon className='flex items-center mr-3 '/>Videos</li>
         <li><StreamRoundedIcon className='flex items-center mr-3 '/>Live</li>

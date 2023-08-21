@@ -1,14 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
-import { Link } from 'react-router-dom';
-import { hamburger_link,youTube_logo } from '../utils/Constants';
+import { YOUTUBE_SEARCH_API, hamburger_link,youTube_logo } from '../utils/Constants';
 import { useDispatch } from 'react-redux';
 import { toggleMenu } from '../utils/appSlice';
+
+
 const Head = () => {
+    const [searchQuery , setSearchQuery] = useState("");
+  
   const dispatch = useDispatch();
   const hamburgerClickHandler = () => {
        dispatch(toggleMenu());
+  }
+
+  useEffect(() => {
+    const timer = setTimeout(getSuggestions(),200);
+
+    return() => {
+      clearTimeout(timer);
+    }
+  },[searchQuery])
+
+  const getSuggestions = async() => {
+    const data = await fetch(YOUTUBE_SEARCH_API + searchQuery)
+    const json = await data.json();
   }
   return (
     <div className='grid grid-flow-col p-5 m-2 shadow-lg'>
@@ -17,7 +33,7 @@ const Head = () => {
             <img className='h-14 mx-2 cursor-pointer' src= {youTube_logo} alt='youtubeLogo'/> 
         </div>
         <div className='col-span-10 text-center'>
-            <input className = "w-1/2 border border-gray-400 p-2 rounded-l-full  outline-none " placeholder ="Search"type='search' />
+            <input className = "w-1/2 border border-gray-400 p-2 rounded-l-full  outline-none " placeholder ="Search"type='search' value={searchQuery} onChange={(e)=> setSearchQuery(e.target.value)}/>
             <button className='border border-gray-400 px-4 py-2 rounded-r-full bg-gray-100 text-black cursor-pointer'><SearchRoundedIcon /></button>
         </div>
         <div className='col-span-1'>

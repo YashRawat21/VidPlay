@@ -28,7 +28,6 @@ function App() {
     <div className="App">
       <div>
         <Provider store={store}>
-
         <Head />
        <RouterProvider router={appRouter}/>
         </Provider>

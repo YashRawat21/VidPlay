@@ -8,23 +8,30 @@ import { toggleMenu } from '../utils/appSlice';
 
 const Head = () => {
     const [searchQuery , setSearchQuery] = useState("");
-  
+     console.log(searchQuery);
   const dispatch = useDispatch();
   const hamburgerClickHandler = () => {
        dispatch(toggleMenu());
   }
 
-  useEffect(() => {
-    const timer = setTimeout(getSuggestions(),200);
+  // useEffect(() => {
+  //   const timer = setTimeout(() =>{ getSuggestions()},200);
 
-    return() => {
-      clearTimeout(timer);
-    }
-  },[searchQuery])
-
+  //   return() => {
+  //     clearTimeout(timer);
+  //   }
+  // },[searchQuery])
+  
+  // Make Api call after every key press
+  //but if difference between 2 api calls is < 200ms
+  // decline the API call
+    useEffect(() => {
+    setTimeout ( () =>  getSuggestions() , 200 )
+    },[searchQuery])
   const getSuggestions = async() => {
     const data = await fetch(YOUTUBE_SEARCH_API + searchQuery)
     const json = await data.json();
+     console.log(json[1])
   }
   return (
     <div className='grid grid-flow-col p-5 m-2 shadow-lg'>

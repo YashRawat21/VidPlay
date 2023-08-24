@@ -8,7 +8,7 @@ import { toggleMenu } from '../utils/appSlice';
 
 const Head = () => {
     const [searchQuery , setSearchQuery] = useState("");
-    
+    const [suggestions , setSuggestions] = useState([])
   const dispatch = useDispatch();
   const hamburgerClickHandler = () => {
        dispatch(toggleMenu());
@@ -30,6 +30,7 @@ const Head = () => {
     const data = await fetch(YOUTUBE_SEARCH_API + searchQuery)
     const json = await data.json();
      console.log(json[1])
+     setSuggestions(json[1])
   }
   return (
     <div className='grid grid-flow-col p-5 m-2 shadow-lg'>
@@ -48,11 +49,10 @@ const Head = () => {
         <div className='fixed py-2 px-2 bg-white ml-[14rem] w-[34rem] shadow-lg rounded-lg border border-gray-100'>
 
           <ul className='text-left list-none  '>
-            <li className='py-2 px-3 shadow-sm hover:bg-gray-100'><SearchRoundedIcon />Iphone pro</li>
-            <li className='py-2 px-3 shadow-sm hover:bg-gray-100'><SearchRoundedIcon />Iphone pro</li>
-            <li className='py-2 px-3  shadow-sm hover:bg-gray-100'><SearchRoundedIcon />Iphone pro</li>
-            <li className='py-2 shadow-sm'><SearchRoundedIcon />Iphone pro</li>
-            <li className='py-2 shadow-sm'><SearchRoundedIcon />Iphone pro</li>
+            {
+              suggestions.map((s) => <li key = {s} className='py-2 px-3 shadow-sm hover:bg-gray-100'><SearchRoundedIcon />{s}</li> )
+            }
+
 
 
           </ul>

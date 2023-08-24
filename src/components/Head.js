@@ -14,19 +14,17 @@ const Head = () => {
        dispatch(toggleMenu());
   }
 
-  // useEffect(() => {
-  //   const timer = setTimeout(() =>{ getSuggestions()},200);
-
-  //   return() => {
-  //     clearTimeout(timer);
-  //   }
-  // },[searchQuery])
-  
+ 
+    //Debouncing
   // Make Api call after every key press
   //but if difference between 2 api calls is < 200ms
   // decline the API call
     useEffect(() => {
-    setTimeout ( () =>  getSuggestions() , 200 )
+   const timer = setTimeout ( () =>  getSuggestions() , 200 )
+
+    return(() => {
+      clearTimeout(timer)
+    })
     },[searchQuery])
   const getSuggestions = async() => {
     const data = await fetch(YOUTUBE_SEARCH_API + searchQuery)

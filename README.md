@@ -11,3 +11,6 @@
 - reconcilitation process trigger
 - re-render component
 - useEffect()
+- start timer make an api call 
+- setTimeout(200ms) -> new timer is set
+- if 200ms pass away and no key is pressed then it will make an api call.

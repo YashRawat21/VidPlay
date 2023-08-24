@@ -8,7 +8,7 @@ import { toggleMenu } from '../utils/appSlice';
 
 const Head = () => {
     const [searchQuery , setSearchQuery] = useState("");
-     console.log(searchQuery);
+    
   const dispatch = useDispatch();
   const hamburgerClickHandler = () => {
        dispatch(toggleMenu());
@@ -37,10 +37,29 @@ const Head = () => {
             <img onClick = {() => hamburgerClickHandler()}className = "h-8 cursor-pointer"src = {hamburger_link} alt='hamburgerImg' />
             <img className='h-14 mx-2 cursor-pointer' src= {youTube_logo} alt='youtubeLogo'/> 
         </div>
+        
+
         <div className='col-span-10 text-center'>
-            <input className = "w-1/2 border border-gray-400 p-2 rounded-l-full  outline-none " placeholder ="Search"type='search' value={searchQuery} onChange={(e)=> setSearchQuery(e.target.value)}/>
+          <div>
+
+            <input className = " px-5 w-1/2 border border-gray-400 p-2 rounded-l-full  outline-none " placeholder ="Search"type='search' value={searchQuery} onChange={(e)=> setSearchQuery(e.target.value)}/>
             <button className='border border-gray-400 px-4 py-2 rounded-r-full bg-gray-100 text-black cursor-pointer'><SearchRoundedIcon /></button>
+          </div>
+        <div className='fixed py-2 px-2 bg-white ml-[14rem] w-[34rem] shadow-lg rounded-lg border border-gray-100'>
+
+          <ul className='text-left list-none  '>
+            <li className='py-2 px-3 shadow-sm hover:bg-gray-100'><SearchRoundedIcon />Iphone pro</li>
+            <li className='py-2 px-3 shadow-sm hover:bg-gray-100'><SearchRoundedIcon />Iphone pro</li>
+            <li className='py-2 px-3  shadow-sm hover:bg-gray-100'><SearchRoundedIcon />Iphone pro</li>
+            <li className='py-2 shadow-sm'><SearchRoundedIcon />Iphone pro</li>
+            <li className='py-2 shadow-sm'><SearchRoundedIcon />Iphone pro</li>
+
+
+          </ul>
+        
         </div>
+        </div>
+        
         <div className='col-span-1'>
             <AccountCircleRoundedIcon className='h-8 mt-3 cursor-pointer'/>
         </div>

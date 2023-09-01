@@ -9,6 +9,7 @@ import { toggleMenu } from '../utils/appSlice';
 const Head = () => {
     const [searchQuery , setSearchQuery] = useState("");
     const [suggestions , setSuggestions] = useState([])
+    const [showSuggestions , setShowSuggestions] = useState(false);
   const dispatch = useDispatch();
   const hamburgerClickHandler = () => {
        dispatch(toggleMenu());
@@ -29,7 +30,6 @@ const Head = () => {
   const getSuggestions = async() => {
     const data = await fetch(YOUTUBE_SEARCH_API + searchQuery)
     const json = await data.json();
-     console.log(json[1])
      setSuggestions(json[1])
   }
   return (
@@ -43,13 +43,14 @@ const Head = () => {
         <div className='col-span-10 text-center'>
           <div>
 
-            <input className = " px-5 w-1/2 border border-gray-400 p-2 rounded-l-full  outline-none " placeholder ="Search"type='search' value={searchQuery} onChange={(e)=> setSearchQuery(e.target.value)}/>
+            <input className = " px-5 w-1/2 border border-gray-400 p-2 rounded-l-full  outline-none " placeholder ="Search"type='search' value={searchQuery} onChange={(e)=> setSearchQuery(e.target.value)} onFocus={() =>setShowSuggestions(true)} onBlur={() => setShowSuggestions(false)}/>
             <button className='border border-gray-400 px-4 py-2 rounded-r-full bg-gray-100 text-black cursor-pointer'><SearchRoundedIcon /></button>
           </div>
-        <div className='fixed py-2 px-2 bg-white ml-[14rem] w-[34rem] shadow-lg rounded-lg border border-gray-100'>
+        <div className='absolute py-2 px-2 bg-white ml-[14rem] w-[34rem] shadow-lg rounded-lg border border-gray-100'>
 
           <ul className='text-left list-none  '>
             {
+              showSuggestions &&
               suggestions.map((s) => <li key = {s} className='py-2 px-3 shadow-sm hover:bg-gray-100'><SearchRoundedIcon />{s}</li> )
             }
 

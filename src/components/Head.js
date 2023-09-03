@@ -33,7 +33,9 @@ const Head = () => {
     <div className='grid grid-flow-col p-5 m-2 shadow-lg'>
         <div className='flex col-span-1 items-center'>
             <img onClick = {() => hamburgerClickHandler()}className = "h-8 cursor-pointer"src = {hamburger_link} alt='hamburgerImg' />
-            <img className='h-14 mx-2 cursor-pointer' src= {youTube_logo} alt='youtubeLogo'/> 
+            {/* <img className='h-14 mx-2  cursor-pointer' src= {youTube_logo} alt='youtubeLogo'/>  */}
+           
+            <span className='m-2 p-2 font-bold text-2xl'>VidPlay🎥</span>
         </div>
         
 

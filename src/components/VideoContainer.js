@@ -3,6 +3,7 @@ import { YOUTUBE_VIDEOS_API} from '../utils/Constants'
 import { Link } from 'react-router-dom';
 import VideoCard from './VideoCard';
 import { useSelector } from 'react-redux';
+import Shimmer from './Shimmer';
 const VideoContainer = () => {
   const [videos,setVideos] = useState([]);
   const getVideos = async() => {
@@ -23,7 +24,8 @@ const VideoContainer = () => {
       videos.map((video) => {
       return <Link key={video.id} to = {"/watch?v=" + video.id} > <VideoCard info={video}/></Link>
       }) :
-      <h1>Loading...</h1>
+     <Shimmer />
+  
 
 }
     </div>

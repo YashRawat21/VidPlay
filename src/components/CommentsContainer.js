@@ -19,7 +19,11 @@ const commentsData = [
                 replies : [{
                     name : "Yash Rawat",
                     text : "Lorem ipsum dolor sit amet , consectetur adip ",
-                    replies : []
+                    replies : [ {
+                        name : "Yash Rawat",
+                        text : "Lorem ipsum dolor sit amet , consectetur adip ",
+                        replies : []
+                    }]
                 },]
             },]
         },]
@@ -32,7 +36,11 @@ const commentsData = [
             replies : [{
                 name : "Yash Rawat",
                 text : "Lorem ipsum dolor sit amet , consectetur adip ",
-                replies : []
+                replies : [ {
+                    name : "Yash Rawat",
+                    text : "Lorem ipsum dolor sit amet , consectetur adip ",
+                    replies : []
+                }]
             },]
         },]
     },{
@@ -57,7 +65,15 @@ const commentsData = [
         replies : [{
             name : "Yash Rawat",
             text : "Lorem ipsum dolor sit amet , consectetur adip ",
-            replies : []
+            replies : [ {
+                name : "Yash Rawat",
+                text : "Lorem ipsum dolor sit amet , consectetur adip ",
+                replies : [ {
+                    name : "Yash Rawat",
+                    text : "Lorem ipsum dolor sit amet , consectetur adip ",
+                    replies : []
+                }]
+            }]
         },]
     },{
         name : "Yash Rawat",
@@ -65,7 +81,11 @@ const commentsData = [
         replies : [{
             name : "Yash Rawat",
             text : "Lorem ipsum dolor sit amet , consectetur adip ",
-            replies : []
+            replies : [ {
+                name : "Yash Rawat",
+                text : "Lorem ipsum dolor sit amet , consectetur adip ",
+                replies : []
+            }]
         },]
     },
 ]

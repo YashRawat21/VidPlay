@@ -16,10 +16,7 @@ const Head = () => {
   }
 
  
-    //Debouncing
-  // Make Api call after every key press
-  //but if difference between 2 api calls is < 200ms
-  // decline the API call
+
     useEffect(() => {
    const timer = setTimeout ( () =>  getSuggestions() , 200 )
 
